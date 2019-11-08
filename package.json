@@ -1,7 +1,7 @@
 {
   "name": "@hooked74/highlight",
-  "version": "0.0.1",
-  "description": "",
+  "version": "1.0.0",
+  "description": "Wrap text nodes in span with highlight class",
   "scripts": {
     "test": "cross-env CI=true project-tools test --bail --colors --coverage --passWithNoTests",
     "test:staged": "cross-env CI=true project-tools test --bail --colors --passWithNoTests --findRelatedTests",
@@ -26,7 +26,13 @@
     "lint:css": "stylelint \"stories/**/*.{js,jsx}\"",
     "lint:types": "tslint --fix -p tsconfig.types.json -c tslint.compile.json \"dist/**/*.d.ts\""
   },
-  "keywords": [],
+  "keywords": [
+    "highlight",
+    "range",
+    "selection",
+    "node",
+    "element"
+  ],
   "sideEffects": false,
   "author": "Igor Novikov <novikovio74@gmail.com>",
   "license": "MIT",
@@ -47,7 +53,7 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.7.2",
-    "@h74-types/general": "^1.0.1",
+    "@h74-types/general": "^1.0.2",
     "@types/lodash": "^4.14.145",
     "lodash": "^4.17.15"
   },
