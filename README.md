@@ -3,22 +3,21 @@
 [![Build Status](https://travis-ci.org/Hooked74/highlight.svg?branch=master)](https://travis-ci.org/Hooked74/highlight)
 [![npm](https://img.shields.io/npm/v/@hooked74/highlight)](https://www.npmjs.com/package/@hooked74/highlight)
 [![License](https://img.shields.io/npm/l/@hooked74/highlight)](https://github.com/Hooked74/highlight/blob/master/LICENSE)
-[![codecov](https://codecov.io/gh/Hooked74/highlight/branch/master/graph/badge.svg)](https://codecov.io/gh/Hooked74/highlight)
 [![Module Size](https://img.shields.io/badge/dynamic/json?color=success&label=module%20size&query=%24.module&url=https%3A%2F%2Fraw.githubusercontent.com%2FHooked74%2Fhighlight%2Fmaster%2F.size-snapshot.json)](https://github.com/Hooked74/highlight/blob/master/.size-snapshot.json)
 
 ## Table of contents
 
 <!--ts-->
-
 - [Overview](#overview)
 - [Install](#install)
 - [Usage](#usage)
+  - [API](#api)
 - [Development](#development)
-  <!--te-->
+<!--te-->
 
 ## Overview
 
-<!-- library overview -->
+This library is designed to highlight text. Using it, you can go through all text nodes (from the start node to the final node) and wrap them in a span with the desired class.
 
 ## Install
 
@@ -28,7 +27,50 @@ npm install @hooked74/highlight
 
 ## Usage
 
-<!-- library usage description -->
+```js
+import Highlight from "@hooked74/highlight";
+
+const hl = new Highlight();
+const id = hl.fromSelect(); // wrap the range from window.getSelection() and return the identifier of this highlight
+
+// remove highlight
+hl.remove(id);
+```
+
+### API
+
+#### **hl.fromSelect([options])**
+
+- options `<{id: string, className: string}>` id - Identifier of this highlight, which can be used instead of generated. className - class to be used for highlighting. id, className are optional, as options.
+- Returns: `<string>` Identifier of this highlight.
+
+Wrap the range from window.getSelection().
+
+#### **hl.fromRange(range[, options])**
+
+- range `<window.Range>` Range to be wrapped.
+- options `<{id: string, className: string}>` id - Identifier of this highlight, which can be used instead of generated. className - class to be used for highlighting. id, className are optional, as options.
+- Returns: `<string>` Identifier of this highlight.
+
+Wrap the passed range.
+
+#### **hl.fromNodes(startNode, endNode[, startOffset, endOffset, options])**
+
+- startNode `<Node>` Range start node.
+- endNode `<Node>` Range end node.
+- startOffset `<number>` Start node offset.
+- endOffset `<number>` End node offset.
+- options `<{id: string, className: string}>` id - Identifier of this highlight, which can be used instead of generated. className - class to be used for highlighting. id, className are optional, as options.
+- Returns: `<string>` Identifier of this highlight.
+
+Wrap a range of start node and end node.
+
+#### **hl.remove(id)**
+
+- id `<string>` Identifier of this highlight.
+- Returns: `<void>`
+
+Remove highlight.
 
 ## Development
 
