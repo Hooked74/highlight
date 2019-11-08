@@ -1,0 +1,32 @@
+{
+  "dist/highlight.js": {
+    "bundled": 58569,
+    "minified": 18420,
+    "gzipped": 7461
+  },
+  "dist/highlight.min.js": {
+    "bundled": 18325,
+    "minified": 18093,
+    "gzipped": 7419
+  },
+  "dist/highlight.cjs.js": {
+    "bundled": 8892,
+    "minified": 4833,
+    "gzipped": 1801
+  },
+  "dist/highlight.esm.js": {
+    "bundled": 8534,
+    "minified": 4560,
+    "gzipped": 1719,
+    "treeshaked": {
+      "rollup": {
+        "code": 407,
+        "import_statements": 357
+      },
+      "webpack": {
+        "code": 3244
+      }
+    }
+  },
+  "module": "1.76 kB"
+}

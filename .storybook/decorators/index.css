@@ -1,0 +1,13 @@
+.highlight {
+  background-color: yellowgreen;
+}
+
+.highlight2 {
+  background-color: goldenrod;
+}
+
+.square {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}

@@ -1,0 +1,39 @@
+dist: trusty
+language: node_js
+node_js:
+  - 13
+  - 12
+  - 11
+cache:
+  directories:
+    - node_modules
+install:
+  - npm ci
+before_script:
+  - npm outdate
+  - npm audit
+script:
+  - npm test
+  - npm run test:browser:ci
+  - npm i -g codecov
+  - codecov --token="$CODECOV_TOKEN" # TODO: get token from codecov and add to travis CI env
+before_deploy:
+  - npm run build
+deploy:
+  - provider: npm
+    email: novikovio74@gmail.com
+    skip_cleanup: true
+    tag: latest
+    on:
+      branch: master
+      repo: Hooked74/highlight
+    api_key:
+      secure: <secure key> # TODO: generate secure key: $ travis encrypt <npm token>
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN # TODO: get token from github and add to travis CI env
+    keep_history: true
+    local_dir: example
+    on:
+      branch: master
+      repo: Hooked74/highlight
