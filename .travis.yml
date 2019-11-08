@@ -13,10 +13,7 @@ before_script:
   - npm outdate
   - npm audit
 script:
-  - npm test
   - npm run test:browser:ci
-  - npm i -g codecov
-  - codecov --token="$CODECOV_TOKEN" # TODO: get token from codecov and add to travis CI env
 before_deploy:
   - npm run build
 deploy:
@@ -28,12 +25,4 @@ deploy:
       branch: master
       repo: Hooked74/highlight
     api_key:
-      secure: <secure key> # TODO: generate secure key: $ travis encrypt <npm token>
-  - provider: pages
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN # TODO: get token from github and add to travis CI env
-    keep_history: true
-    local_dir: example
-    on:
-      branch: master
-      repo: Hooked74/highlight
+      secure: nRTgflTxKINhoGbs4AOEIW7GnLgd3+IR++Xc9LxAujoB3gI/3I4radNYA4uiwJDEy2pYZJI82HNLXiOYXz225ENyTaCBx9zbx7Y7dlPAulK95rdjTQBt6oeJE9PoCF7TpTxqFjHC3fipGJf0OzBDIeLTNlXawt53g8+sFdwSJ/ea1Um3qGnw4BK2py8UxQ5zgmhbjrT0yFMcgFYKvFzuewdgP9NukuZfRngp0icy7nnf4dJn8MqPFnO938h58QHO+CsjPgERDsCBSkSoLiJZR+le9JtCsZddux3zXiyxlOBpYZIR4RIrJQ2S5kiVOKrsZvEXFQ3opxpPA4FQA8LUxhJlBr8skkTtT/b2+OVXYYWZIHhwN8ZQ2MYJ6vcCwLXfQcJvVw+HIb3Qx1BXp8QtVXOT7QYyBqiPozeEMru2C8AlZ3Z17UWFQiA5fwOZy/4ODCXihaa6yrEycl7qqjUAU1Ys/v1Iv+hzlUc8H74H8m/TuO1uxNr8Zz2a95hSEdFCk+3z6xty/vD2ycpqHs11LBaf6WF84t7OLVIGqTg1VLJoaOs1I/uddxvJ5BI7VkGAY6TgZLKAWkiTI/M9OkHUXG1pEtHFz6Don4fUZXU7mNRIXlMD8YA8DMamLfebzXePL0F//F7KJhPfQ9zZffmJmznJs0EDZjqwlSrs1hPSmHk=
