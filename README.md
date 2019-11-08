@@ -31,7 +31,9 @@ npm install @hooked74/highlight
 import Highlight from "@hooked74/highlight";
 
 const hl = new Highlight();
-const id = hl.fromSelect(); // wrap the range from window.getSelection() and return the identifier of this highlight
+// wrap the range from window.getSelection()
+// return the identifier of this highlight
+const id = hl.fromSelect();
 
 // remove highlight
 hl.remove(id);
