@@ -10,7 +10,7 @@ export default class NodeIterator {
 
     if (startNode !== endNode || startOffset !== endNodeIndex) {
       treeWalker.currentNode = isTextNode(startNode)
-        ? this.handler(startNode as Text, startOffset, null)
+        ? this.handler(startNode, startOffset, null)
         : startNode.childNodes[startOffset];
 
       this.traverseNodeTree(
@@ -22,7 +22,7 @@ export default class NodeIterator {
     }
 
     if (endNodeIsText) {
-      treeWalker.currentNode = this.handler(endNode as Text, null, endOffset);
+      treeWalker.currentNode = this.handler(endNode, null, endOffset);
     } else {
       const parent: Node = (treeWalker.currentNode = endNode.childNodes[endNodeIndex]);
       this.traverseNodeTree(treeWalker, (node: Node) => parent.contains(node));
@@ -33,7 +33,7 @@ export default class NodeIterator {
     let prevNode: Node;
     while (prevNode !== treeWalker.currentNode && condition(treeWalker.currentNode)) {
       if (isTextNode(treeWalker.currentNode)) {
-        treeWalker.currentNode = this.handler(treeWalker.currentNode as Text, null, null);
+        treeWalker.currentNode = this.handler(treeWalker.currentNode, null, null);
       }
       prevNode = treeWalker.currentNode;
       treeWalker.nextNode();

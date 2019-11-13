@@ -12,13 +12,13 @@ export default class NodeReplacer {
 
   constructor(private options: H74_H.Options) {}
 
-  public readonly replaceTextNode = (node: Text, startOffset: int, endOffset: int): Text => {
+  public readonly replaceTextNode = (node: Node, startOffset: int, endOffset: int): Node => {
     const { id, className }: H74_H.Options = this.options;
     const [
       firstPartOfString,
       stringToBeWrapped,
       lastPartOfString
-    ]: H74_H.BrokenString = this.breakTextContent(node, startOffset, endOffset);
+    ]: H74_H.BrokenString = this.breakTextContent(node as Text, startOffset, endOffset);
 
     if (stringToBeWrapped) {
       const fragment: DocumentFragment = document.createDocumentFragment();
@@ -40,7 +40,7 @@ export default class NodeReplacer {
       const lastTextNode: Text =
         (fragment.lastChild.firstChild as Text) || (fragment.lastChild as Text);
 
-      this.replaceTextNodeWithBrokenString(node, fragment);
+      this.replaceTextNodeWithBrokenString(node as Text, fragment);
 
       return lastTextNode;
     }
