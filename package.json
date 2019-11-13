@@ -68,7 +68,7 @@
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-typescript": "^7.7.2",
     "@cypress/webpack-preprocessor": "^4.1.0",
-    "@hooked74/project-tools": "^1.2.9",
+    "@hooked74/project-tools": "^1.2.11",
     "@storybook/html": "^5.2.6",
     "@storybook/theming": "^5.2.6",
     "@svgr/rollup": "^4.3.3",
@@ -143,6 +143,7 @@
     "access": "public"
   },
   "files": [
-    "/dist"
+    "/dist",
+    "tsconfig.json"
   ]
 }
