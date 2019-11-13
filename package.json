@@ -1,6 +1,6 @@
 {
   "name": "@hooked74/highlight",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Wrap text nodes in span with highlight class",
   "scripts": {
     "test": "cross-env CI=true project-tools test --bail --colors --coverage --passWithNoTests",
@@ -68,7 +68,7 @@
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-typescript": "^7.7.2",
     "@cypress/webpack-preprocessor": "^4.1.0",
-    "@hooked74/project-tools": "^1.2.11",
+    "@hooked74/project-tools": "^1.2.13",
     "@storybook/html": "^5.2.6",
     "@storybook/theming": "^5.2.6",
     "@svgr/rollup": "^4.3.3",
